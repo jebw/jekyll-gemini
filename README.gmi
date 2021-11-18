@@ -1,0 +1,34 @@
+# Jekyll Gemtext
+
+Gemtext convertor for the Jekyll static site generator
+Supports `*.gmi`, `*.gmni` and `*.gemini` files
+
+## Installation
+
+Add the gem to your Gemfile
+
+```ruby
+# Gemfile
+
+gem 'jekyll-gemtext'
+```
+
+Then install the gems,
+
+```bash
+bundle install
+```
+
+Then you can create `*.gmi` posts in `_posts`, and `bundle exec jekyll build` to convert to HTML
+
+## FAQ
+
+Q: Why use Gemtext over Markdown
+A: If you're also publishing to Gemini, it allows you to use the same Gemtext files for your static website and you Gemini capsule
+
+## Links
+
+=> https://gemini.circumlunar.space/docs/gemtext.gmi Gemtext docs
+=> https://gemini.circumlunar.space/ About Gemini
+
+
