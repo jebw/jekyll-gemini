@@ -14,6 +14,7 @@ class JekyllGemini::Capsule < Jekyll::Site
     super
 
     self.converters = [JekyllGemini::Converter.new(config)]
+    self.generators = []
   end
 
   def docs_to_write
@@ -26,43 +27,6 @@ class JekyllGemini::Capsule < Jekyll::Site
 
   def static_files
     []
-  end
-
-  def render
-    puts "CONVERTERS ARE #{self.converters.map(&:class).map(&:to_s).inspect}"
-
-    super
-  end
-
-  # def setup
-  #   ensure_not_in_dest
-
-  #   plugin_manager.conscientious_require
-
-  #   puts "I AM #{self.object_id}"
-
-  #   self.converters = [JekyllGemini::Converter.new(config)]
-  #   self.generators = []
-
-  #   puts "CONVERTERS: #{self.converters.length}"
-  # end
-
-  # def render
-  #   relative_permalinks_are_deprecated
-
-  #   payload = site_payload
-
-  #   Jekyll::Hooks.trigger :site, :pre_render, self, payload
-
-  #   render_docs(payload)
-    # render_pages(payload)
-
-  #   Jekyll::Hooks.trigger :site, :post_render, self, payload
-  #   nil
-  # end
-
-  def generate
-    # FIXME: disabled for now
   end
 
   private
