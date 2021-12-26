@@ -6,31 +6,32 @@ class JekyllGemini::Capsule < Jekyll::Site
     'theme' => nil
   }
 
-  # def each_site_file(&block)
-  #   pages.each(&block)
-  #   docs_to_write.each(&block)
-  # end
-
   def config
     super.merge(CONFIG_OVERRIDES)
-  end
-
-  def static_files
-    []
-  end
-
-  def pages
-    return @pages if @pages.length < 1
-
-    puts "STARTED WITH #{@pages.map(&:path).inspect}"
-
-    @pages.select(&method(:is_gemtext_file?))
   end
 
   def setup
     super
 
     self.converters = [JekyllGemini::Converter.new(config)]
+  end
+
+  def docs_to_write
+    super.select(&method(:is_gemtext?))
+  end
+
+  def pages
+    super.select(&method(:is_gemtext?))
+  end
+
+  def static_files
+    []
+  end
+
+  def render
+    puts "CONVERTERS ARE #{self.converters.map(&:class).map(&:to_s).inspect}"
+
+    super
   end
 
   # def setup
@@ -66,7 +67,15 @@ class JekyllGemini::Capsule < Jekyll::Site
 
   private
 
-  def is_gemtext_file?(file)
+  def is_gemtext?(file)
     GEMTEXT_EXT.include?(file.extname)
+  end
+
+  def render_docs(payload)
+    collections.each_value do |collection|
+      collection.docs.select(&method(:is_gemtext?)).each do |document|
+        render_regenerated(document, payload)
+      end
+    end
   end
 end
