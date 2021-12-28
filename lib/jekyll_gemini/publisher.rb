@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module JekyllGemini
   class Publisher < ::Jekyll::Publisher
     GEMTEXT_EXT = %w[.gmi .gmni .gemini]

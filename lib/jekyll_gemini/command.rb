@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JekyllGemini::Command < Jekyll::Command
   class << self
     def init_with_program(prog)

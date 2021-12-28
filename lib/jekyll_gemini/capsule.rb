@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JekyllGemini::Capsule < Jekyll::Site
   def setup
     super

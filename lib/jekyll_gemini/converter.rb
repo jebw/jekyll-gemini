@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JekyllGemini::Converter
   def initialize(_config); end
 
