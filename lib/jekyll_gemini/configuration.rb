@@ -6,11 +6,14 @@ module JekyllGemini
       'theme' => nil,
     }
 
+    CAPSULE_DEFAULT_EXCLUDES = %w[css js fonts]
+
     class << self
       def build(override)
         Jekyll.configuration(override)
               .tap(&method(:add_capsule_defaults))
               .tap(&method(:add_capsule_specific_keys))
+              .tap(&method(:add_capsule_excludes))
       end
 
     private
@@ -20,7 +23,18 @@ module JekyllGemini
       end
 
       def add_capsule_specific_keys(config)
-        config.merge!(config['capsule'] || {})
+        capsule_keys = (config['capsule'] || {}).dup
+        capsule_keys.delete('exclude')
+
+        config.merge!(capsule_keys)
+      end
+
+      def add_capsule_excludes(config)
+        excludes = (config['capsule'] || {})['exclude']
+        excludes ||= CAPSULE_DEFAULT_EXCLUDES
+
+        config['exclude'] ||= []
+        config['exclude'].concat(excludes).uniq!
       end
     end
   end

@@ -1,6 +1,4 @@
 class JekyllGemini::Capsule < Jekyll::Site
-  GEMTEXT_EXT = %w[.gmi .gmni .gemini]
-
   def setup
     super
 
@@ -10,9 +8,5 @@ class JekyllGemini::Capsule < Jekyll::Site
 
   def publisher
     @publisher ||= ::JekyllGemini::Publisher.new(self)
-  end
-
-  def static_files
-    []
   end
 end
