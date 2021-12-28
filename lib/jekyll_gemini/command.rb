@@ -4,8 +4,8 @@ module JekyllGemini
   class Command < Jekyll::Command
     class << self
       def init_with_program(prog)
-        prog.command(:capsule) do |c|
-          c.syntax "capsule [options]"
+        prog.command(:gemini) do |c|
+          c.syntax "gemini [options]"
           c.description 'Build the Gemini capsule'
 
           add_build_options(c)
