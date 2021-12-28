@@ -2,20 +2,18 @@
 
 module JekyllGemini
   class Publisher < ::Jekyll::Publisher
-    GEMTEXT_EXT = %w[.gmi .gmni .gemini]
-
     def publish?(item)
       super && compatible_with_site?(item) && targetted_at_site?(item)
     end
 
-  private
+    private
 
     def compatible_with_site?(item)
-      @site.is_a?(Capsule) ? is_gemtext?(item) : true
+      @site.is_a?(Capsule) ? gemtext?(item) : true
     end
 
-    def is_gemtext?(item)
-      GEMTEXT_EXT.include?(item.extname)
+    def gemtext?(item)
+      Converter::GEMTEXT_EXT.include?(item.extname)
     end
 
     def targetted_at_site?(item)

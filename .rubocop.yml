@@ -5,12 +5,9 @@ require:
 AllCops:
   TargetRubyVersion: 2.5
   NewCops: enable
-
-Metrics/BlockLength:
-  IgnoredMethods: ['describe']
+  Exclude:
+    - lib/jekyll_gemini/command.rb
 
 Style/Documentation:
   Enabled: false
 
-Style/RegexpLiteral:
-  Enabled: false

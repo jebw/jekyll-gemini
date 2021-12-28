@@ -13,7 +13,10 @@ Gem::Specification.new do |gem|
   gem.authors     = ['Jeremy Wilkins']
   gem.email       = ['jeb@jdwilkins.co.uk']
   gem.homepage    = 'https://github.com/jebw/jekyll-gemini'
-  gem.license       = 'MIT'
+  gem.license     = 'MIT'
+  gem.metadata    = {
+    'rubygems_mfa_required' => 'true'
+  }
 
   gem.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
   gem.executables   = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
@@ -21,7 +24,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = %w[lib]
   gem.required_ruby_version = '>= 2.5.0'
 
-  gem.add_dependency "jekyll", ">= 3.7", "< 5.0"
+  gem.add_dependency 'jekyll', '>= 3.7', '< 5.0'
   gem.add_dependency 'jekyll-gemtext', '~> 0.1'
 
   gem.add_development_dependency 'bundler', '~> 2.2'

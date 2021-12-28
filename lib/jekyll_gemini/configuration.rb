@@ -4,11 +4,11 @@ module JekyllGemini
   class Configuration
     CAPSULE_DEFAULTS = {
       'layouts_dir' => '_gemini/_layouts',
-      'destination' =>  File.join(Dir.pwd, '_capsule'),
-      'theme' => nil,
-    }
+      'destination' => File.join(Dir.pwd, '_capsule'),
+      'theme' => nil
+    }.freeze
 
-    CAPSULE_DEFAULT_EXCLUDES = %w[css js fonts]
+    CAPSULE_DEFAULT_EXCLUDES = %w[css js fonts].freeze
 
     class << self
       def build(override)
@@ -18,7 +18,7 @@ module JekyllGemini
               .tap(&method(:add_capsule_excludes))
       end
 
-    private
+      private
 
       def add_capsule_defaults(config)
         config.merge!(CAPSULE_DEFAULTS)

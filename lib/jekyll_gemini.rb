@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
-module JekyllGemini
-  VERSION = '0.0.1'
-end
+require 'jekyll_gemini/command'
+require 'jekyll_gemini/configuration'
+require 'jekyll_gemini/capsule'
+require 'jekyll_gemini/converter'
+require 'jekyll_gemini/fixes'
+require 'jekyll_gemini/publisher'
