@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'jekyll-gemtext'
 require 'jekyll_gemini/command'
 require 'jekyll_gemini/configuration'
 require 'jekyll_gemini/capsule'
