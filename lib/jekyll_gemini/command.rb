@@ -14,8 +14,6 @@ class JekyllGemini::Command < Jekyll::Command
       end
 
       def process(options)
-        options['destination'] = File.join(Dir.pwd, "_capsule")
-
         # Adjust verbosity quickly
         Jekyll.logger.adjust_verbosity(options)
 
@@ -42,6 +40,12 @@ class JekyllGemini::Command < Jekyll::Command
         Jekyll.logger.info "Generating..."
         process_site(site)
         Jekyll.logger.info "", "done in #{(Time.now - t).round(3)} seconds."
+      end
+
+      def configuration_from_options(options)
+        return options if options.is_a?(::Jekyll::Configuration)
+
+        ::JekyllGemini::Configuration.build(options)
       end
     end
   end
