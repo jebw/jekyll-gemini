@@ -3,7 +3,7 @@
 module JekyllGemini
   class Configuration
     CAPSULE_DEFAULTS = {
-      'layouts_dir' => '_gemini/_layouts',
+      'layouts_dir' => '_gemini_layouts',
       'destination' => File.join(Dir.pwd, '_capsule'),
       'theme' => nil
     }.freeze
