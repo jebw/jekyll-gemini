@@ -6,7 +6,7 @@ SimpleCov.start do
 end
 
 require 'jekyll'
-require 'jekyll-gemtext'
+require 'jekyll-gemini'
 
 Jekyll.logger.log_level = :info
 
