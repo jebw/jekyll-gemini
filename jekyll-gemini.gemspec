@@ -6,9 +6,10 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |gem|
   gem.name        = 'jekyll-gemini'
   gem.version     = '0.1.0'
-  gem.summary     = 'Gemini capsule extension for the Jekyll static site generator'
+  gem.summary     = 'Jekyll plugin to publish to Geminispace'
   gem.description = <<~DESCRIPTION
-    Compile a Gemini capsule from any Gemtext pages in your site
+    Plugin for Jekyll to publish your Jekyll site to both the Web and
+    Geminispace from the same set of source Pages and Posts
   DESCRIPTION
   gem.authors     = ['Jeremy Wilkins']
   gem.email       = ['jeb@jdwilkins.co.uk']
